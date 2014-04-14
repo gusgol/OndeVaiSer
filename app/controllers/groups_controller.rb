@@ -1,3 +1,4 @@
+# encoding: UTF-8 
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
@@ -63,7 +64,11 @@ class GroupsController < ApplicationController
 
   def query
     @group = Group.find_by_name(params[:search_name])
-    redirect_to group_path(@group)
+    if @group.nil?
+      redirect_to search_path, alert: 'Grupo não existe!'
+    else
+      redirect_to group_path(@group)
+    end
   end
 
   private

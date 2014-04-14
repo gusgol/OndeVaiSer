@@ -19,5 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+en: 
+  activerecord:
+    errors:
+      messages:
+        blank: " - Você precisa escolher um nome, seu danado!"
+        taken: " - Esse nome já existe... Mais criatividade, por favor!"
+
