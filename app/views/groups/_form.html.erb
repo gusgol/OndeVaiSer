@@ -1,0 +1,23 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="input-group input-group-lg">
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Nome do grupo, pode ser qualquer coisa!"%>
+    <span class="input-group-btn">
+      <button class="btn btn-success" type="submit">CRIAR</button>
+    </span>
+  </div>
+<% end %>
+

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poll_date: 2014-04-04
+  group_id: MyString
+
+two:
+  poll_date: 2014-04-04
+  group_id: MyString

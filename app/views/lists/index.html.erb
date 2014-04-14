@@ -1,0 +1,26 @@
+<div class="container ovs-content">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked red">
+        <li><a href="/groups/<%= params[:group_id] %>"><strong>Votações</strong></a></li>
+        <li class="active">
+          <%= link_to lists_path(:group_id => params[:group_id]) do %>
+            <strong>Lugares</strong>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <div class="list-group">
+        <% @lists.each do |list|  %>
+          <%= link_to options_path(:list_id => list.id), :class => "list-group-item" do %>
+            <span class="badge"><%= list.options.count %></span>
+            <%= list.name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

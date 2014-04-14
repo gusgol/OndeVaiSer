@@ -1,0 +1,46 @@
+body {
+	margin-top: 50px;
+}
+
+.ovs-content {
+	margin-top: 75px;
+}
+
+.ovs-nav-button {
+	margin-top: 8px;
+}
+
+.ovs-default-margin {
+	margin: 75px 120px;
+
+	h1 {
+		font-size: 4em;
+	}
+}
+
+.active {
+	a {
+		color: red;
+	}
+}
+
+.nav-pills>li.active>a {
+	color:#fff;background-color:#222
+}
+
+.nav-pills>li.active>a:hover {
+	color:#fff;background-color:#222
+}
+
+.nav-pills>li>a {
+	color:#222;
+}
+
+.nav-pills>li>a:hover {
+	color:#222;
+}
+
+.ovs-pull-right {
+	display: block;
+	float: right;
+}

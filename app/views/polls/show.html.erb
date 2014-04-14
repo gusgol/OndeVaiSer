@@ -1,0 +1,22 @@
+<div class="container ovs-content">
+
+	<div class="row">
+		<div class="col-md-3">
+			<ul class="nav nav-pills nav-stacked red">
+				<li class="active"><a href="/groups/<%= @poll.group.id %>"><strong>Votações</strong></a></li>
+				<li>
+					<%= link_to lists_path(:group_id => @poll.group.id) do %>
+						<strong>Lugares</strong>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+	<div class="col-md-9">
+		<% lists = List.where(:group_id => @poll.group.id) %>
+		<%= form_tag options_path,  method: :get, remote: true, :id => "ovs-list-form" do %>
+			<%= select_tag :list_id, options_from_collection_for_select(lists, "id", "name"), :class => "form-control", :id => "ovs-list-selector" %>
+		<% end %>
+		<div id="options"></div>
+	</div>
+	
+</div>
