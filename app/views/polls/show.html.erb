@@ -13,10 +13,13 @@
 		</div>
 	<div class="col-md-9">
 		<% lists = List.where(:group_id => @poll.group.id) %>
+		<h3>Lista:</h3>
 		<%= form_tag options_path,  method: :get, remote: true, :id => "ovs-list-form" do %>
 			<%= select_tag :list_id, options_from_collection_for_select(lists, "id", "name"), :class => "form-control", :id => "ovs-list-selector" %>
 		<% end %>
+		<br>
+		<h3>Seu voto:</h3>
 		<div id="options"></div>
 	</div>
-	
+	<script type="text/javascript">$('#ovs-list-form').submit();</script>
 </div>

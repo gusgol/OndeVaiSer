@@ -1,5 +1,30 @@
-<h1>New option</h1>
+<div class="container ovs-content">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked red">
+        <% group = List.find(params[:list_id]).group %>
+        <li><a href="/groups/<%= group.id %>"><strong>Votações</strong></a></li>
+        <li class="active">
+          <%= link_to lists_path(:group_id => group.id) do %>
+            <strong>Lugares</strong>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 
-<%= render 'form' %>
+    <div class="col-md-3">
+      <h2>Nova Opção</h2>
+      <div class="list-group">
+      	<%= render 'form' %>
+      </div>
+    </div>
 
-<%= link_to 'Back', options_path %>
+  </div>
+ 
+</div>
+
+
+
+
+
+

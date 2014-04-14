@@ -15,8 +15,9 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     group_id = params[:group_id]
+    polls_count = params[:polls_count].to_i + 1
     @poll = Poll.new
-    @poll.name = "Pesquisa_" + Date.today.strftime('%d%m%Y')
+    @poll.name = "Pesquisa "+ group_id + " " + Date.today.strftime('%d/%m/%Y') + " (#{polls_count})"
     @poll.group_id = group_id
     if @poll.save
       redirect_to group_path(group_id), notice: 'Pesquisa criada.'

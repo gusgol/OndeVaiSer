@@ -14,11 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+//= require jquery.turbolinks
 
 
 $(document).ready(function(){
-
 	$('#ovs-list-selector').change(function() {
 	  $('#ovs-list-form').submit();
 	});

@@ -1,6 +1,29 @@
-<h1>Editing group</h1>
 
-<%= render 'form' %>
+<div class="container ovs-content">
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+	<div class="row">
+		<div class="col-md-3">
+			<ul class="nav nav-pills nav-stacked red">
+				<li class="active"><a href="<%= @group.id %>"><strong>Votações</strong></a></li>
+				<li>
+					<%= link_to lists_path(:group_id => @group.id) do %>
+						<strong>Lugares</strong>
+					<% end %>
+				</li>
+
+			</ul>
+		</div>
+		
+		<div class="col-md-9">
+			<h2>Alterar nome:</h2>
+			<%= form_for(@group) do |f| %>
+			<div class="input-group input-group-lg">
+		    <%= f.text_field :name, :class => "form-control", :placeholder => "Nome do grupo, pode ser qualquer coisa!"%>
+		    <span class="input-group-btn">
+		      <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-floppy-save"></span></button>
+		    </span>
+		  </div>
+		  <% end %>
+		</div>
+	</div>
+</div>

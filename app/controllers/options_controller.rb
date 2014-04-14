@@ -40,7 +40,7 @@ class OptionsController < ApplicationController
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to @option, notice: 'Option was successfully created.' }
+        format.html { redirect_to options_path(:list_id => @option.list.id) }
         format.json { render action: 'show', status: :created, location: @option }
       else
         format.html { render action: 'new' }
@@ -68,7 +68,7 @@ class OptionsController < ApplicationController
   def destroy
     @option.destroy
     respond_to do |format|
-      format.html { redirect_to options_url }
+      format.html { redirect_to options_path(:list_id => @option.list.id) }
       format.json { head :no_content }
     end
   end

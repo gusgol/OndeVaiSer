@@ -11,6 +11,7 @@
 						<strong>Lugares</strong>
 					<% end %>
 				</li>
+
 			</ul>
 		</div>
 		
@@ -18,6 +19,7 @@
 			<div>
 				<%= link_to "Hoje", group_path(@group) %> |
 				<%= link_to "Todos", :controller => 'groups', :action => "show", :id => @group.id, :mode => "all" %>
+				<a href="/groups/<%= @group.id %>/edit" class="pull-right"><span class="glyphicon glyphicon-wrench"></span></a>
 			</div>
 			<br>
 			<% if flash[:notice] %>
@@ -44,7 +46,7 @@
 								<tr>
 									<th>
 										<%= link_to poll do %>
-											<strong><%= poll.id %></strong>
+											<strong><%= poll.name %></strong>
 										<% end %>	
 									</th>
 								</tr>
@@ -54,17 +56,12 @@
 				</table>
 			</div>
 			<div class="well">
-				<%= link_to new_poll_path(:group_id => @group.id) do %>
+				<%= link_to new_poll_path(:group_id => @group.id, :polls_count => @group.polls.count) do %>
 				  <button type="button" class="btn btn-success">Nova Votação</button>
 				<% end %>
 			</div>
 
 		</div>
-	</div>
-
-	<div class="row">
-		<%= link_to 'Edit', edit_group_path(@group) %> |
-		<%= link_to 'Back', groups_path %>
 	</div>
 </div>
 
