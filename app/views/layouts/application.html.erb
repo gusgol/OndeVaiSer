@@ -10,10 +10,13 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="/search">Onde vai ser?</a>
+		<a class="navbar-brand" href="/search">Onde vai ser?</a>	
 		<%= link_to (new_group_path) do %>
 			<button type="button" class="btn btn-warning pull-right ovs-nav-button">Criar Grupo</button>
 		<% end %>
+		<%= link_to (new_list_path) do %>
+			<button type="button" class="btn btn-warning pull-right ovs-nav-button">Criar Lista</button>
+		<% end %>			
 	</div>
 </div>
 
