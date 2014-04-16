@@ -1,4 +1,5 @@
 <%= form_for(@list) do |f| %>
+
   <% if @list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -11,15 +12,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :group_id %><br>
-    <%= collection_select :list, :group_id, Group.all, :id, :name %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <p><%= collection_select :list, :group_id, Group.all, :id, :name, {:prompt => 'Selecione o grupo'}, {:class => "form-control"} %> </p>
+  <p><%= f.text_field :name, :class => "form-control", :placeholder => "Nome da lista"%></p>
+  <p><button class="btn btn-success" type="submit">CRIAR</button></p>    
 <% end %>
+
+
+
