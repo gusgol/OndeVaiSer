@@ -12,7 +12,13 @@ body {
 }
 
 .ovs-default-margin {
-	margin: 75px 120px;
+	position: relative;
+	left: 20%;
+	top: 200px;
+	width: 60%;
+	
+
+
 
 	h1 {
 		font-size: 4em;
@@ -51,12 +57,26 @@ a:hover {
 }
 
 
-
-
 @media screen and (max-width: 768px) {
 
 	.ovs-mobile-menu {
 		margin-bottom: 20px;
 	}
 
+	.ovs-default-margin {
+		left: 10%;
+		width: 80%;
+		top: 150px
+	}
+
+}
+
+@media screen and (max-width: 400px) {
+
+	.ovs-default-margin {
+		left: 10%;
+		width: 80%;
+		margin: 0px 0px;
+		top: 75px;
+	}	
 }
