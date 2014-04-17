@@ -2,9 +2,13 @@
 <div class="container ovs-content">
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 ovs-mobile-menu">
 			<ul class="nav nav-pills nav-stacked red">
-				<li class="active"><a href="<%= @group.id %>"><strong>Votações</strong></a></li>
+				<li>
+					<%= link_to group_path(:group_id => @group.id) do %>
+						<strong>Votações</strong>
+					<% end %>
+				</li>
 				<li>
 					<%= link_to lists_path(:group_id => @group.id) do %>
 						<strong>Lugares</strong>

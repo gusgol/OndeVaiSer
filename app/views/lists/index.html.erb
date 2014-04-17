@@ -1,6 +1,6 @@
 <div class="container ovs-content">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 ovs-mobile-menu">
       <ul class="nav nav-pills nav-stacked red">
         <li><a href="/groups/<%= params[:group_id] %>"><strong>Votações</strong></a></li>
         <li class="active">
@@ -12,15 +12,26 @@
     </div>
 
     <div class="col-md-3">
-      <h1>Listas</h1>
-      <div class="list-group">
-        <% @lists.each do |list|  %>
-          <%= link_to options_path(:list_id => list.id), :class => "list-group-item" do %>
-            <span class="badge"><%= list.options.count %></span>
-            <%= list.name %>
-          <% end %>
+      <div>
+      <h1 style="display: inline;">Listas</h1>
+        <%= link_to new_list_path(:group_id => params[:group_id]), :clas =>"pull-right" do %>
+          <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span></button>
         <% end %>
       </div>
+      <br>
+      <div class="list-group">
+        <% if @lists.any? %>
+          <% @lists.each do |list|  %>
+            <%= link_to options_path(:list_id => list.id), :class => "list-group-item" do %>
+              <span class="badge"><%= list.options.count %></span>
+              <%= list.name %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class = "list-group-item"> Não há listas para esse grupo</div>
+        <% end %>
+      </div>
+
     </div>
 
   </div>

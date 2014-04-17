@@ -1,7 +1,12 @@
 
 <div class="list-group">
 	<% @options.each do |option| %>
-		<a href="#" class="list-group-item"><%= option.name %></a>
+			
+		<%= link_to votes_path(:vote_name => option.name, :poll_id => @poll.id), :method => :post, :class => "list-group-item" do %>
+			<span class="badge"><%= getVotesCount(option.name, @poll.id) %></span>
+			<%= option.name %>
+
+		<% end %>
 	<% end %>
 </div>
 

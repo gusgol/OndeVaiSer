@@ -3,7 +3,7 @@
 <div class="container ovs-content">
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 ovs-mobile-menu">
 			<ul class="nav nav-pills nav-stacked red">
 				<li class="active"><a href="<%= @group.id %>"><strong>Votações</strong></a></li>
 				<li>
@@ -31,7 +31,7 @@
 			<% if params[:mode] == "all" %>
 				<% @polls = @group.polls.all %>
 			<% else %>
-				<% @polls = @group.polls.where('created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all %>
+				<% @polls = @group.polls.where('created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).order('created_at DESC').all %>
 			<% end %>
 			<div class="panel panel-default">  
 				<div class="panel-heading">

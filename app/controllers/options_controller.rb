@@ -5,8 +5,10 @@ class OptionsController < ApplicationController
   # GET /options.json
   def index
     #@options = Option.all
-     @options = List.find(params[:list_id]).options
-   
+    @options = List.find(params[:list_id]).options
+    if !params[:poll_id].nil?
+     @poll = Poll.find(params[:poll_id])
+    end
     respond_to do |format|
       format.html {
         #render action: 'index'

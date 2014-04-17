@@ -1,8 +1,9 @@
 <div class="container ovs-content">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 ovs-mobile-menu">
       <ul class="nav nav-pills nav-stacked red">
-        <% group = List.find(params[:list_id]).group %>
+        <% list = List.find(params[:list_id]) %>
+        <% group = list.group %>
         <li><a href="/groups/<%= group.id %>"><strong>Votações</strong></a></li>
         <li class="active">
           <%= link_to lists_path(:group_id => group.id) do %>
@@ -13,7 +14,7 @@
     </div>
 
     <div class="col-md-3">
-      <h1>Lugares</h1>
+      <h1><%= list.name %></h1>
       <div class="list-group">
         <table class="table">
           <thead>
@@ -34,6 +35,9 @@
             <% end %>
           </tbody>
         </table>
+        <%= link_to list, method: :delete, data: { confir: 'Tem certeza?' } do %>
+          <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+        <% end %>
         <%= link_to new_option_path :list_id => params[:list_id] do %>
           <button type="button" class="btn btn-primary"><strong>+ Lugar</strong></button>
         <% end %>

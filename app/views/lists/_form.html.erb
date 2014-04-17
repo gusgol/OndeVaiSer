@@ -13,7 +13,7 @@
   <% end %>
 
 
-  <p><%= collection_select :list, :group_id, Group.all, :id, :name, {:prompt => 'Selecione o grupo'}, {:class => "form-control"} %> </p>
+  <p><%= f.hidden_field :group_id, :value => params[:group_id] %></p>
   <p><%= f.text_field :name, :class => "form-control", :placeholder => "Nome da lista"%></p>
   <p><button class="btn btn-success" type="submit">CRIAR</button></p>    
 <% end %>

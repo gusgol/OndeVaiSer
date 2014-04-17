@@ -28,7 +28,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_path(:group_id => @list.group_id), notice: 'List was successfully created.' }
         format.json { render action: 'show', status: :created, location: @list }
       else
         format.html { render action: 'new' }
@@ -56,7 +56,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url }
+      format.html { redirect_to lists_path(:group_id => @list.group_id)}
       format.json { head :no_content }
     end
   end

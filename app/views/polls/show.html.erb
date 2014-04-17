@@ -1,7 +1,7 @@
 <div class="container ovs-content">
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 ovs-mobile-menu">
 			<ul class="nav nav-pills nav-stacked red">
 				<li class="active"><a href="/groups/<%= @poll.group.id %>"><strong>Votações</strong></a></li>
 				<li>
@@ -12,14 +12,16 @@
 			</ul>
 		</div>
 	<div class="col-md-9">
-		<% lists = List.where(:group_id => @poll.group.id) %>
+		<% lists = List.where(:group_id => @poll.group.id).order("name") %>
 		<h3>Lista:</h3>
-		<%= form_tag options_path,  method: :get, remote: true, :id => "ovs-list-form" do %>
+		<%= form_tag options_path(:poll_id => @poll.id),  method: :get, remote: true, :id => "ovs-list-form" do %>
 			<%= select_tag :list_id, options_from_collection_for_select(lists, "id", "name"), :class => "form-control", :id => "ovs-list-selector" %>
 		<% end %>
 		<br>
 		<h3>Seu voto:</h3>
 		<div id="options"></div>
+		<br>
+		<h2>Vencedor: <strong><%= getCurrentWinner(@poll.id) %></strong></h2>
 	</div>
 	<script type="text/javascript">$('#ovs-list-form').submit();</script>
 </div>
