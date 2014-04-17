@@ -3,7 +3,11 @@ module PollsHelper
 	def getCurrentWinner(poll_id)
 		votes = Vote.where(:poll_id => poll_id)
 		if votes.any?
-			checkTie(votes.group('name').count)
+			if votes.count > 1
+				checkTie(votes.group('name').count)
+			else
+				votes.first.name 
+			end
 		else
 			"Nenhum voto foi computado ate o momento"
 		end
