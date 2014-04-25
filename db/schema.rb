@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417180805) do
+ActiveRecord::Schema.define(version: 20140425141927) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20140417180805) do
     t.integer  "poll_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
   end
+
+  add_index "votes", ["ip_address"], name: "index_votes_on_ip_address"
+  add_index "votes", ["name"], name: "index_votes_on_name"
 
 end

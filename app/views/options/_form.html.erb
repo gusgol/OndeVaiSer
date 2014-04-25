@@ -20,7 +20,7 @@
   <div class="field">
     <%= f.hidden_field :list_id, :value => params[:list_id] %><br>
   </div>
-  <%= link_to list_path(params[:list_id]) do %>
+  <%= link_to options_path(:list_id => params[:list_id]) do %>
     <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-chevron-left"></span></button>
   <% end %>
   <button type="submit" class="btn btn-primary">Salvar</button>
